@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en-US" class="no-js">
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Glass</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+  <%= stylesheet_link_tag    "application", media: "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+
+<body>
+
+<div class="container">
+
+  <h1>Login</h1>
+
+  <% flash.each do |key, msg| %>
+    <div class="alert alert-info">
+      <button class="close" data-dismiss="alert">&times;</button>
+      <%= msg %>
+    </div>
+  <% end %>
+
+  <form action="/sessions" method="post">
+    <input type="hidden" value="<%=form_authenticity_token%>" name="authenticity_token">
+    <label for="inputEmail">Email</label>
+    <input type="email" id="inputEmail" name="email" placeholder="Email">
+    <label for="inputPassword">Password</label>
+    <input type="password" id="inputPassword" name="password" placeholder="Password">
+    <label class="checkbox">
+      <input type="checkbox">
+      Remember me
+    </label>
+    <button type="submit" class="btn">Sign in</button>
+  </form>
+
+</div>
+
+</body>
+
+</html>
